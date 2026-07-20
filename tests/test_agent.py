@@ -20,12 +20,7 @@ reconcile functions directly with constructed inputs rather than going
 through the full LLM pipeline (agent.orchestrator.run_agent). This keeps
 the suite fast and fully deterministic. Two genuine end-to-end tests DO
 call the real model through Ollama and are marked @pytest.mark.slow.
-
-Run only the fast, deterministic tests (recommended during development):
-    pytest tests/ -m "not slow"
-
-Run everything, including real LLM calls (do this before final submission):
-    pytest tests/
+    
 """
 
 import pytest
