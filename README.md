@@ -102,6 +102,13 @@ never be silently ignored.
 | `calculate_match_score` / `rank_candidates` | `agent/scoring.py` | Optional |
 | `draft_outreach` | `tools/outreach.py` | Optional |
 
+`draft_outreach` writes a separate message per recommended match, framed differently
+per entity type (a supplier match asks about their capacity/certifications; a
+professional match asks about rate/availability; an opportunity match instead
+expresses interest in bidding on someone else's listing - the direction is reversed).
+Each draft is grounded in that specific match's own evidence (e.g. its reported
+capacity or certifications) rather than generic filler text.
+
 ## Match scoring (section 6 formula)
 
 | Component | Weight | Computed from |
@@ -203,3 +210,4 @@ per entity type), and all pass reliably.
   reasoning blocks. The parser requests `think=False` and constrains output with
   `format="json"`, and strips any `<think>` block as a safety net, but this is a
   known model-specific quirk worth flagging.
+
