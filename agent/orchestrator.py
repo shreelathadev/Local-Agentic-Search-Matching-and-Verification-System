@@ -281,7 +281,7 @@ def run_agent(
 
     outreach_message = None
     if enriched:
-        outreach_message = draft_outreach(structured, enriched)
+        outreach_message = draft_outreach(structured, enriched, category=inferred_category)
 
     final_count = len(enriched)
     requested = structured.requested_results
