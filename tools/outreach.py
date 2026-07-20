@@ -40,7 +40,7 @@ def draft_outreach(
         # Ground the draft in the specific evidence already gathered for this
         # match, instead of a purely generic message - e.g. references the
         # actual reported capacity/delivery/rate rather than asking blind.
-        evidence_line = "; ".join(rec.get("evidence", [])[:2])
+        evidence_line = "; ".join(e.rstrip(".") for e in rec.get("evidence", [])[:2])
         evidence_sentence = f" We noted the following from your profile: {evidence_line}." if evidence_line else ""
 
         if entity_type == "supplier":
